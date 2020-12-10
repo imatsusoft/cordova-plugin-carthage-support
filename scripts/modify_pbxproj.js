@@ -56,11 +56,11 @@ module.exports = function (context) {
     var cmd, tmpCartfilePath = cartfilePath + ".tmp"
     fs.writeFileSync(tmpCartfilePath, cartfiles.join("\r\n"))
 
-    if (changeCartfile(cartfilePath, tmpCartfilePath)) {
-        cmd = "carthage update --platform iOS"
-    } else {
+    // if (changeCartfile(cartfilePath, tmpCartfilePath)) {
+    //     cmd = "carthage update --platform iOS"
+    // } else {
         cmd = "carthage bootstrap --platform iOS --cache-builds"
-    }
+    // }
     fs.writeFileSync(cartfilePath, cartfiles.join("\r\n"))
 
     console.log("##### Update Carthage")
